@@ -1,0 +1,61 @@
+type Query {
+  organizations(type: String): [Organization]!
+  organizationByID(id: ObjectID!): Organization
+}
+
+type Mutation {
+  deleteOrganization(id: ObjectID!): Boolean
+  addOrganization(
+    name: String!
+    contact: contactInput!
+    address: addressInput
+    OrganizationNumber: String
+    parentClinicId: String
+    type: String
+    logoImage: String
+    connectedLabs: [ID]
+  ): Organization
+}
+# dentist user cannot update any organization
+# func to see type of user logged in
+
+type Organization {
+  _id: String
+  name: String
+  contact: Contact
+  address: Address
+  OrganizationNumber: String
+  parentClinicId: String
+  active: Boolean
+  type: String
+  created: Update
+  updated: Update
+  logoImage: String
+  connectedLabs: [Organization]
+}
+
+type Contact {
+  email: String
+  phoneNumber: String
+  website: String
+}
+
+input contactInput {
+  email: String
+  phoneNumber: String
+  website: String
+}
+
+type Address {
+  street: String
+  city: String
+  postal_code: String
+  country: String
+}
+
+input addressInput {
+  street: String
+  city: String
+  postal_code: String
+  country: String
+}

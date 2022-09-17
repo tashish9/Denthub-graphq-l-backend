@@ -1,0 +1,11 @@
+type Query {
+  users(type: String): [User]!
+  currentUser: User!
+  userByID(id: ObjectID!): User
+  signIn(email: String!, password: String!): LoggedUserData! #both
+}
+
+type LoggedUserData {
+  authToken: String
+  role: String
+}

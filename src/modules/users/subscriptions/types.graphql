@@ -1,0 +1,8 @@
+type Subscription {
+  signIn: Result
+}
+
+type Result {
+  username: String
+  role: String
+}

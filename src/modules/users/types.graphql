@@ -1,0 +1,27 @@
+scalar Date
+scalar ObjectID
+
+type User { #output type
+  _id: ObjectID
+  username: String
+  # password: String
+  type: String
+  role: String
+  organization: Organization
+  created: Update
+  updated: Update
+  active: Boolean
+  email: String
+  profileImage: String
+  phoneNumber: String
+}
+
+type Update {
+  at: Date # Date
+  by: ObjectID # MongoID
+}
+
+# input updateInput {
+#   on: String
+#   by: String
+# }

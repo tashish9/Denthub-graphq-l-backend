@@ -1,0 +1,18 @@
+type Mutation {
+  updateUser(
+    _id: String!
+    username: String
+    email: String
+    profileImage: String
+    phoneNumber: String
+    organization: String
+  ): User!
+  signUp(
+    email: String!
+    role: String!
+    username: String!
+    phoneNumber: String
+    profileImage: String
+    organization: String
+  ): User!
+}
